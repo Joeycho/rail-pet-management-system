@@ -1,11 +1,18 @@
-<%= form_for @user, url: login_path, method: :post do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+<div class="topnav">
+  <a href="/">Home</a>
+  <a class="active" href="/login">Login</a>
+  <a href="/pets">Pet list</a>
+  <a href="/clinics">Clinic list</a>
+</div>
 
-  <%= f.label :password %>
-  <%= f.password_field :password %>
+<%= form_tag ({controller: 'sessions', action: 'create', method: 'post'}) do%>
 
-  <%= f.submit "log in" %>
+  <%= label_tag "name", "Name:" %>
+  <%= text_field_tag "name"%><br>
+
+  <%= label_tag "password", "Password:" %>
+  <%= text_field_tag "password"%>
+  <input type=submit value='login'><br>
   Or <%= link_to('Login with Facebook', '/auth/facebook') %>
-  Or <%= link_to(controller: 'owners', action: 'new') { 'sign up' } %>
+  Or <%= link_to('sign up', '/owners/new') %>
 <% end %>
