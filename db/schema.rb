@@ -29,10 +29,14 @@ ActiveRecord::Schema.define(version: 2019_03_31_072613) do
   end
 
   create_table "pets", force: :cascade do |t|
+    t.integer "clinic_id"
+    t.integer "owner_id"
     t.string "name"
     t.string "desc"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["clinic_id"], name: "index_pets_on_clinic_id"
+    t.index ["owner_id"], name: "index_pets_on_owner_id"
   end
 
 end

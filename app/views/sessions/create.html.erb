@@ -1,2 +1,11 @@
-<h1>Sessions#create</h1>
-<p>Find me in app/views/sessions/create.html.erb</p>
+<div class="topnav">
+  <a href="/">Home</a>
+  <a class="active" href="/login">Login</a>
+  <a href="/pets">Pet list</a>
+  <a href="/clinics">Clinic list</a>
+</div>
+
+<h1><%= @owner.name %></h1>
+  <h2>Email: <%= @owner.email %></h2>
+  <h2>Facebook UID: <%= @owner.uid %></h2>
+  <img src="<%= @owner.image %>">
