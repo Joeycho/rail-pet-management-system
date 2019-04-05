@@ -1,2 +1,8 @@
-<h1>Owners#login</h1>
-<p>Find me in app/views/owners/login.html.erb</p>
+<h1>Owner SignIn form</h1>
+<%= form_for @owner do |f| %>
+  <%= f.text_field :name %>
+  <%= f.text_field :email %>
+  <%= f.password_field :password %>
+  <%= f.password_field :password_confirmation %>
+  <%= f.submit "Submit" %>
+<% end %>

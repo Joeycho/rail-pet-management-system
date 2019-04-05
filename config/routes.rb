@@ -9,6 +9,6 @@ get '/auth/:provider/callback', to: 'sessions#create'
 
 post '/logout' => 'sessions#destroy'
 
-resources :owner, only: [:new, :create]
+resources :owners, only: [:new, :create]
 
 end
