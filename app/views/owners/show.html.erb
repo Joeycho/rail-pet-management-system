@@ -1,2 +1,23 @@
-<h1>Owners#show</h1>
-<p>Find me in app/views/owners/show.html.erb</p>
+<div class="topnav">
+  <a href="/">Home</a>
+  <a class="active" href="/login">Login</a>
+  <a href=<%=owner_pets_path(@owner)%>>Pet list</a>
+  <a href="/clinics">Clinic list</a>
+</div>
+
+<% if flash[:message] %>
+  <%= flash[:message] %>
+<% end %>
+
+<h1>Welcome, <%=@owner.name%></h1>
+  <h2>Email: <%= @owner.email %></h2>
+<table>
+  <tr>
+    <th>
+      <%= link_to('Adopt pet', new_owner_pet_path(@owner)) %>
+    </th>
+    <th>
+      <%= link_to('Logout', logout_path) %>
+    </th>
+  </tr>
+</table>

@@ -5,6 +5,7 @@ class CreatePets < ActiveRecord::Migration[5.2]
       t.belongs_to :clinic, index: true, foreign_key: true
       t.belongs_to :owner, index: true, foreign_key: true
       t.string :name
+      t.string :type
       t.string :desc
 
       t.timestamps

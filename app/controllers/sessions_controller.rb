@@ -1,7 +1,12 @@
 require 'pry'
 class SessionsController < ApplicationController
+include ApplicationHelper
 
   def new
+    if logged_in?
+      flash[:message] = "You are already logged in. Please logout first, if you want to login as other owner"
+      redirect_to(current_owner)
+    end
   end
 
   def create
@@ -28,7 +33,7 @@ class SessionsController < ApplicationController
 
       @owner = owner
 
-      render 'sessions/create'
+      redirect_to owner_path(@owner)
       #redirect_to controller: 'owners', action: 'home'
     end
 
@@ -37,6 +42,8 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+    session.clear
+    redirect_to root_path
   end
 
   private

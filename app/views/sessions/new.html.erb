@@ -5,14 +5,27 @@
   <a href="/clinics">Clinic list</a>
 </div>
 
+<% if flash[:message] %>
+  <%= flash[:message] %>
+<% end %>
+
+<h2>Login Form</h2>
+
 <%= form_tag ({controller: 'sessions', action: 'create', method: 'post'}) do%>
-
-  <%= label_tag "name", "Name:" %>
-  <%= text_field_tag "[owner]name"%><br>
-
-  <%= label_tag "password", "Password:" %>
-  <%= password_field_tag "[owner]password"%>
-  <input type=submit value='login'><br>
-  Or <%= link_to('Login with Facebook', '/auth/facebook') %>
-  Or <%= link_to('sign up', '/owners/new') %>
+<table>
+  <tr>
+  <th><%= label_tag "name", "Name:" %></th>
+  <td><%= text_field_tag "[owner]name"%></td>
+  </tr>
+  <tr>
+  <th><%= label_tag "password", "Password:"%></th>
+  <td><%= password_field_tag "[owner]password"%></td>
+  <td><input type=submit value='login'><br></td>
+  </tr>
+  <tr>
+  <td></td>
+  <td><%= link_to('Login with Facebook', '/auth/facebook') %></td>
+  <td><%= link_to('sign up', '/owners/new') %></td>
+</tr>
+</table>
 <% end %>
