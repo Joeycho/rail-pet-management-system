@@ -1,8 +1,14 @@
-<h1>Owner SignIn form</h1>
-<%= form_for @owner do |f| %>
-  <%= f.text_field :name %>
-  <%= f.text_field :email %>
-  <%= f.password_field :password %>
-  <%= f.password_field :password_confirmation %>
+<div class="topnav">
+  <a href="/">Home</a>
+  <a href="/login">Login</a>
+  <a class="active" href="/owners/new">Sign Up</a>
+</div>
+
+<h1>Owner Sign Up form</h1>
+<%= form_for :owner do |f| %>
+  Username: <%= f.text_field :name %>
+  Email: <%= f.text_field :email %>
+  Password: <%= f.password_field :password %>
+  Password Confirmation: <%= f.password_field :password_confirmation %>
   <%= f.submit "Submit" %>
 <% end %>

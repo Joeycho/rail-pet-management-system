@@ -8,10 +8,10 @@
 <%= form_tag ({controller: 'sessions', action: 'create', method: 'post'}) do%>
 
   <%= label_tag "name", "Name:" %>
-  <%= text_field_tag "name"%><br>
+  <%= text_field_tag "[owner]name"%><br>
 
   <%= label_tag "password", "Password:" %>
-  <%= text_field_tag "password"%>
+  <%= password_field_tag "[owner]password"%>
   <input type=submit value='login'><br>
   Or <%= link_to('Login with Facebook', '/auth/facebook') %>
   Or <%= link_to('sign up', '/owners/new') %>

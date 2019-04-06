@@ -5,9 +5,15 @@
   <a href="/clinics">Clinic list</a>
 </div>
 
-
 <h1>Welcome to pet management system</h1>
 
-
-
-<p>Find me in app/views/owners/home.html.erb</p>
+<table>
+  <tr>
+    <th>Owner list</th>
+    </tr>
+  <%@owners.each do |owner|%>
+  <tr><td>Name: <%=owner.name%></td>
+    <td>Email: <%=owner.email%></td>
+  </tr>
+  <%end%>
+</table>
