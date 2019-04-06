@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 2019_03_31_072613) do
     t.integer "clinic_id"
     t.integer "owner_id"
     t.string "name"
+    t.string "breed"
     t.string "desc"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

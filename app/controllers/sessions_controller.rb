@@ -20,7 +20,6 @@ include ApplicationHelper
           end
         @owner.save
 
-        binding.pry
         session[:user_id] = @owner.id
     else
       owner = Owner.find_by(name: owner_params[:name])

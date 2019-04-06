@@ -15,7 +15,6 @@ class OwnersController < ApplicationController
       @owner = Owner.find_by(id: id_from_url)
     else
       flash[:message] = "You are accessing other owner's page!!"
-      binding.pry
       redirect_to owner_path(current_owner)
     end
 
