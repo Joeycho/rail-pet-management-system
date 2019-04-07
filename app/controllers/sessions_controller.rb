@@ -19,8 +19,8 @@ include ApplicationHelper
             u.password = SecureRandom.hex(9)
           end
         @owner.save
-
-        session[:user_id] = @owner.id
+        session[:owner_id] = @owner.id
+        flash[:message] = "Login successful with your facebook account"
     else
       owner = Owner.find_by(name: owner_params[:name])
 
@@ -31,10 +31,10 @@ include ApplicationHelper
       session[:owner_id] = owner.id
 
       @owner = owner
-
-      redirect_to owner_path(@owner)
       #redirect_to controller: 'owners', action: 'home'
     end
+
+    redirect_to owner_path(@owner)
 
 
 

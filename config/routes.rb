@@ -22,5 +22,6 @@ resources :owners, only: [:show] do
 end
 
 resources :clinics, only: [:index]
+resources :pets, only: [:destroy]
 
 end

@@ -11,8 +11,8 @@ module ApplicationHelper
 
    def redirect_if_not_logged_in
      if !logged_in?
-       flash[:message] = "Something is wrong, login again"
-       redirect "/login"
+       flash[:message] = "Login is required"
+       redirect_to "/login"
      end
    end
 end

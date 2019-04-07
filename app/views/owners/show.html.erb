@@ -5,13 +5,11 @@
   <a href="/clinics">Clinic list</a>
 </div>
 
-<% if flash[:message] %>
-  <%= flash[:message] %>
-<% end %>
+<%= render partial: "pets/flash", locals: {key: 'message'} %>
 
 <h1>Welcome, <%=@owner.name%></h1>
   <h2>Email: <%= @owner.email %></h2>
-<table>
+<table class="ownershow">
   <tr>
     <th>
       <%= link_to('Adopt pet', new_owner_pet_path(@owner)) %>

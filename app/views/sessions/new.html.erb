@@ -5,9 +5,7 @@
   <a href="/clinics">Clinic list</a>
 </div>
 
-<% if flash[:message] %>
-  <%= flash[:message] %>
-<% end %>
+<%= render partial: "pets/flash", locals: {key: 'message'} %>
 
 <h2>Login Form</h2>
 
