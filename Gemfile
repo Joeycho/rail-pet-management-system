@@ -14,6 +14,7 @@ gem 'omniauth'
 
 gem 'omniauth-facebook'
 
+gem 'rails-erd', group: :development
 
 ruby '2.6.1'
 
