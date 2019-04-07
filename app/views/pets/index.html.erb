@@ -1,0 +1,28 @@
+<div class="topnav">
+  <a href="/">Home</a>
+  <a href="/login">Login</a>
+  <a class="active" href=<%=owner_pets_path(@owner)%>>Pet list</a>
+  <a href="/clinics">Clinic list</a>
+</div>
+
+<%= render partial: "flash", locals: {key: 'update'} %>
+
+<h1> Pet list</h1>
+<table class="petlist">
+<tr>
+  <th>Name</th>
+  <th>Breed</th>
+  <th>Clinic</th>
+  <th>Edit pet info</th>
+  <th>Bye to your pet</th>
+</tr>
+<%@pets.each do |pet|%>
+<tr>
+  <td><a class="petshow" href=<%=owner_pet_path(pet.owner.id,pet.id)%>><%=pet.name%></a></td>
+  <td><%=pet.breed%></td>
+  <td><%=pet.clinic.name%></td>
+  <td><%=link_to("Edit",edit_owner_pet_path(pet.owner.id,pet.id))%></td>
+  <td><%=link_to("Bye Bye",pet_path(pet),:method => 'delete')%></td>
+</tr>
+<%end%>
+</table>

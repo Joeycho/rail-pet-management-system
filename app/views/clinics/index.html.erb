@@ -1,0 +1,28 @@
+<div class="topnav">
+  <a href="/">Home</a>
+  <a href=<%=owner_path(current_owner)%>>Owner</a>
+  <a class="active" href="/clinics">Clinic list</a>
+</div>
+
+
+<h1>Clinic list</h1>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Address</th>
+    <th>Availability</th>
+    <th>Owner list</th>
+    </tr>
+  <%@clinics.each do |clinic|%>
+  <tr>
+    <td><%=clinic.name%></td>
+    <td><%=clinic.addr%></td>
+    <td><%=@avaiables.exists?(clinic.id) ? "Yes" : "No"%></td>
+    <td>
+    <%clinic.owners.distinct.each do |owner|%>
+      <%=owner.name%>
+    <%end%>
+    </td>
+  </tr>
+  <%end%>
+</table>

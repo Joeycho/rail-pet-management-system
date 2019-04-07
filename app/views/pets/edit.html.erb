@@ -1,0 +1,19 @@
+<div class="topnav">
+  <a href=<%=owner_path(@pet.owner)%>>Owner page</a>
+  <a class="active" href=<%=edit_owner_pet_path(@pet.owner.id,@pet)%>>Edit</a>
+</div>
+
+<%= render partial: "flash", locals: {key: 'update'} %>
+
+<h1>Pet Edit form</h1>
+
+<%= form_for :pet, url: owner_pet_path(@pet.owner, @pet),method: :patch do |f| %>
+  <%=f.hidden_field :owner_id, :value =>@pet.owner.id%>
+  Pet Name: <%= f.text_field :name %>
+  Pet Breed: <%= f.text_field :breed %>
+  Pet Description: <%= f.text_field :desc %>
+
+  Pet Clinic: <%= f.collection_select :clinic_id, Clinic.all, :id, :name%>
+
+  <%= f.submit "Edit" %>
+<% end %>

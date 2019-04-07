@@ -1,0 +1,19 @@
+<div class="topnav">
+  <a href=<%=owner_path(@owner)%>>Owner page</a>
+  <a class="active" href=<%=new_owner_pet_path(@owner)%>>Adoption</a>
+</div>
+
+<%= render partial: "flash", locals: {key: 'full'} %>
+
+<h1>Pet adoption form</h1>
+
+<%= form_for :pet, url: owner_pets_path(@owner) do |f| %>
+  <%=f.hidden_field :owner_id, :value =>@owner.id%>
+  Pet Name: <%= f.text_field :name %>
+  Pet Breed: <%= f.text_field :breed %>
+  Pet Description: <%= f.text_field :desc %>
+
+  Pet Clinic: <%= f.collection_select :clinic_id, Clinic.all, :id, :name%>
+
+  <%= f.submit "Adopt" %>
+<% end %>
