@@ -23,9 +23,11 @@ class OwnersController < ApplicationController
   def create
     @owner = Owner.create(owner_params)
 
-    return redirect_to controller: 'owners', action: 'new' unless @owner.save
-    #@owner.errors.messages[:name|:email]
-    
+
+    if !@owner.save
+    return render 'new'
+    end
+
     session[:owner_id] = @owner.id
 
     redirect_to owner_path(@owner)

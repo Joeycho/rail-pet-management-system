@@ -4,6 +4,10 @@
   <a class="active" href="/owners/new">Sign Up</a>
 </div>
 
+<%@owner.errors.full_messages.each do |err|%>
+  <li><%=err%></li>
+  <%end%>
+
 <h1>Owner Sign Up form</h1>
 <%= form_for :owner do |f| %>
   Username: <%= f.text_field :name %>
