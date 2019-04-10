@@ -45,3 +45,7 @@ Under the MIT License
 `https://github.com/learn-co-curriculum/has_secure_password_lab`
 
 `https://github.com/Joeycho/omniauth_lab-v-000`
+
+## Feedback
+
+Helper methods are usually used for moving logics from views. For controller, applicationController will take repetitive code for other controllers. Partial views also take some repetitive code from other view pages.
