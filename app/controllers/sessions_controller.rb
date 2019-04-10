@@ -24,15 +24,24 @@ include ApplicationHelper
     else
       owner = Owner.find_by(name: owner_params[:name])
 
+      if !owner
+        flash[:message] = "Name is not found in the db, try with other name"
+        return render 'new'
+      end
+
       owner = owner.try(:authenticate, owner_params[:password])
 
-      return redirect_to(controller: 'sessions', action: 'new') unless owner
+      if !owner
+        flash[:message] = "Wrong password, try with right password"
+        return render 'new'
+      end
 
       session[:owner_id] = owner.id
-
       @owner = owner
-      #redirect_to controller: 'owners', action: 'home'
+      flash[:message] = "successfully login!"
+
     end
+
 
     redirect_to owner_path(@owner)
 
