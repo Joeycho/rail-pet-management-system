@@ -15,6 +15,8 @@ class PetsController < ApplicationController
       redirect_to new_owner_pet_path(current_owner)
     end
 
+
+    # redirect_to vs render  -- Use render as much as possible
   end
 
   def destroy
@@ -34,6 +36,10 @@ class PetsController < ApplicationController
   def show
     redirect_if_not_logged_in
     @pet = Pet.find_by(id: params[:id])
+    if !@pet
+      redirect_to owner_path(current_owner)
+    end
+    
   end
 
   def edit

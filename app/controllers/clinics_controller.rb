@@ -23,4 +23,14 @@ class ClinicsController < ApplicationController
     redirect_to clinics_path
   end
 
+  def show
+    @clinic = Clinic.find_by(id: params[:id])
+
+    if !@clinic
+      #flash[:]
+      redirect_to clinics_path
+    end
+
+  end
+
 end

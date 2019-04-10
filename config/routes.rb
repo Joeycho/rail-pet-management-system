@@ -22,7 +22,7 @@ resources :owners, only: [:show] do
   resources :pets, only: [:show, :index,:new,:create,:edit,:update]
 end
 
-resources :clinics, only: [:index,:new,:create]
-resources :pets, only: [:destroy,:new]
+resources :clinics, only: [:index,:new,:create,:show]
+resources :pets, only: [:destroy]
 
 end

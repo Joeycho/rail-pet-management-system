@@ -1,0 +1,13 @@
+<div class="topnav">
+  <a href="/">Home</a>
+  <a href=<%=owner_path(current_owner)%>>Current_owner</a>
+  <a class="active">Current Clinic</a>
+</div>
+
+<h1><%=@clinic.name%> page!</h1>
+
+<p>Clinic's address is <%=@clinic.addr%></p><br>
+
+<%@clinic.pets.each do |pet|%>
+<li><%=pet.name%> in <%=@clinic.name%></li>
+<%end%>
