@@ -1,0 +1,16 @@
+<div class="topnav">
+  <a href="/">Home</a>
+  <a href=<%=owner_path(current_owner)%>>Current_owner</a>
+  <a class="active" href=<%=new_clinic_path%>>Add a new Clinic</a>
+</div>
+
+<%@clinic.errors.full_messages.each do |err|%>
+  <li><%=err%></li>
+  <%end%>
+
+<h1>Clinic Add form</h1>
+<%= form_for @clinic do |f| %>
+  name: <%= f.text_field :name %>
+  Address: <%= f.text_field :addr %>
+  <%= f.submit "Submit" %>
+<% end %>
