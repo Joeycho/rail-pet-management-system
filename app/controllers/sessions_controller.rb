@@ -45,8 +45,6 @@ include ApplicationHelper
 
     redirect_to owner_path(@owner)
 
-
-
   end
 
   def destroy
